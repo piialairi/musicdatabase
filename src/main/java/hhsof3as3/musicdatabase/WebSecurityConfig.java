@@ -56,7 +56,7 @@ public class WebSecurityConfig {
 	    }
 	  
 	
-	@Bean
+	/*@Bean
 	public UserDetailsService userDetailsService() {
 		List<UserDetails> users = new ArrayList<UserDetails>();
 		
@@ -79,6 +79,6 @@ public class WebSecurityConfig {
 	    	users.add(user2);
 	    	
 	    	return new InMemoryUserDetailsManager(users);
-		}
+		}*/
 
 }
