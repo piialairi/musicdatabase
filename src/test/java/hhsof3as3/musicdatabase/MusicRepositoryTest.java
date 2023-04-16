@@ -31,11 +31,12 @@ public class MusicRepositoryTest {
     private TestEntityManager em;
 	
 	@Test // testataan MusicRepositoryn findByTitle()- metodin toimivuutta
-	public void findByTitleShouldReturnTitle() {
-		List<Music> musics = musicRepository.findByTitle("Song");
+	public void findByTitleShouldReturnArtist() {
+		List<Music> musics = musicRepository.findByTitle("Battle Ready");
 		
 		assertThat(musics).hasSize(1);
-		assertThat(musics.get(0).getArtist()).isEqualTo("Artist");
+		assertThat(musics.get(0).getArtist()).isEqualTo("Otep");
+		
 	}
 	
 	@Test // testataan MusicRepositoryn save-metodia
@@ -45,7 +46,7 @@ public class MusicRepositoryTest {
 		assertThat(music.getId()).isNotNull();
 	}
 	
-	/*@Test // testataan MusicRepositoryn delete-metodia
+	/*@Test // testataan MusicRepositoryn delete-metodia -- tämä ei jostain syystä toimi
 	@Rollback(false)
 	public void deleteMusic() {
 		Music music = musicRepository.findById(Long.valueOf(1));

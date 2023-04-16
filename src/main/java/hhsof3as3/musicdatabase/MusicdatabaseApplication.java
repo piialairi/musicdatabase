@@ -26,13 +26,13 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 public class MusicdatabaseApplication implements WebMvcConfigurer {
 	private static final Logger log = LoggerFactory.getLogger(MusicdatabaseApplication.class);
 	
-	private final LocaleChangeInterceptor localeChangeInterceptor;
+	//private final LocaleChangeInterceptor localeChangeInterceptor;
 	
-	public MusicdatabaseApplication(LocaleChangeInterceptor localeChangeInterceptor) {
-	    this.localeChangeInterceptor = localeChangeInterceptor;
-	  }
-	
-	@Override
+	/*public MusicdatabaseApplication(LocaleChangeInterceptor localeChangeInterceptor) {
+	   this.localeChangeInterceptor = localeChangeInterceptor;
+	 }*/
+
+	/*@Override
 	  public void addInterceptors(InterceptorRegistry interceptorRegistry) {
 	    interceptorRegistry.addInterceptor(localeChangeInterceptor);
 	  }
@@ -41,6 +41,10 @@ public class MusicdatabaseApplication implements WebMvcConfigurer {
 	    messageSource.setBasenames("lang/messages");
 	    messageSource.setDefaultEncoding("UTF-8");
 	   
+		SpringApplication.run(MusicdatabaseApplication.class, args);
+	}*/
+	
+	public static void main(String[] args) {
 		SpringApplication.run(MusicdatabaseApplication.class, args);
 	}
 
