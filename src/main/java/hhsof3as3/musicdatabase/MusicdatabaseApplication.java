@@ -40,8 +40,7 @@ public class MusicdatabaseApplication implements WebMvcConfigurer {
 		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
 	    messageSource.setBasenames("lang/messages");
 	    messageSource.setDefaultEncoding("UTF-8");
-	    System.out.println(messageSource.getMessage("hello", null, Locale.ITALIAN));
-	    
+	   
 		SpringApplication.run(MusicdatabaseApplication.class, args);
 	}
 
