@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<!-- <link type="text/css" rel="stylesheet" href="/css/css/bootstrap.min.css" th:href="@{/css/css/bootstrap.min.css}" /> -->
+<link type="text/css" rel="stylesheet" href="/css/css/oma.css" th:href="@{/css/css/oma.css}" />
+<title>Welcome</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<button type="button" th:text="#{switch-en}" onclick="window.location.href='http://localhost:8080/?localeData=en'"></button>
+<button type="button" th:text="#{switch-it}" onclick="window.location.href='http://localhost:8080/?localeData=it'"></button>
+<button type="button" th:text="#{switch-fi}" onclick="window.location.href='http://localhost:8080/?localeData=fi'"></button><br>
+<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sign out"/>
+	</form>
+	<br>
+<span th:text="#{hello}"></span> <span sec:authentication="name"></span>!<br>
+<span th:text="#{welcome}"></span><br>
+<br>
+
+<a href="/musiclist" class="btn btn success" th:text="#{workout}"></a><br>
+<br>
+<a href="/playlist" class="btn btn success" th:text="#{sleep}"></a>
+<!-- <p><button type="button" th:text="Workout" onclick="window.location.href='http://localhost:8080/musiclist'"></button> </p> -->
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit song</title>
+<link type="text/css" rel="stylesheet" href="/css/css/bootstrap.min.css" th:href="@{/css/css/bootstrap.min.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<button type="button" th:text="#{switch-en}" onclick="window.location.href='http://localhost:8080/?localeData=en'"></button>
+<button type="button" th:text="#{switch-it}" onclick="window.location.href='http://localhost:8080/?localeData=it'"></button>
+<button type="button" th:text="#{switch-fi}" onclick="window.location.href='http://localhost:8080/?localeData=fi'"></button>
+<div class="container">
+<h1 th:text="#{edit}">Edit song</h1>
+<form th:object="${music}" th:action="@{../save}" action="#" method="post">
+	<label for="title" th:text="#{title}"></label>
+		<input type="hidden" th:field="*{id}" class="form-control"/>
+		<input type="text" id="title" th:field="*{title}" class="form-control"/>
+		<div style="clear: both; display: block; height: 10px;"></div>
+	<label for="artist" th:text="#{artist}"></label>
+		<input type="text" id="artist" th:field="*{artist}" class="form-control"/>
+		<div style="clear: both; display: block; height: 10px;"></div>
+	<label for="release_year" th:text="#{releaseyear}"></label>
+		<input type="text" id="release_year" th:field="*{release_year}" class="form-control"/>
+		<div style="clear: both; display: block; height: 10px;"></div>
+	<label for="length" th:text="#{length}"></label>
+		<input type="text" id="length" th:field="*{length}" class="form-control"/>
+		<div style="clear: both; display: block; height: 10px;"></div>
+		<label for="catlist" th:text="#{category}"></label>
+			 <select id="catlist" th:field="*{category}" class="form-control required">
+       			<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+    		</select>
+	<input type="submit" class="btn btn-success" value="Save"></input>
+	<a href="/musiclist" class="btn btn-success" th:text="#{back}"></a>
+</form>
+</div>
+</body>
+</html>

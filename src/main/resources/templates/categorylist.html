@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+<meta charset="ISO-8859-1">
+<link type="text/css" rel="stylesheet" href="/css/css/bootstrap.min.css" th:href="@{/css/css/bootstrap.min.css}" />
+<title>Categorylist</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<button type="button" th:text="#{switch-en}" onclick="window.location.href='http://localhost:8080/?localeData=en'"></button>
+<button type="button" th:text="#{switch-it}" onclick="window.location.href='http://localhost:8080/?localeData=it'"></button>
+<button type="button" th:text="#{switch-fi}" onclick="window.location.href='http://localhost:8080/?localeData=fi'"></button>
+<form th:action="@{/logout}" method="post">
+	<h1 th:text="#{categoryList}">Categorylist</h1>
+	<table class="table table striped">
+		<tbody>
+			<tr th:each = "category: ${categorys}">
+				<td th:text="${category.name}">Category name</td>
+		
+			</tr>
+		</tbody>
+		</table>
+			<p><a href="/addcategory" class="btn btn-success" th:text="#{addNewCat}">Add new category</a></p>
+
+</body>
+</html>

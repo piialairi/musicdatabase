@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link type="text/css" rel="stylesheet" href="/css/css/bootstrap.min.css" th:href="@{/css/css/bootstrap.min.css}" />
+<title>Add category</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<button type="button" th:text="#{switch-en}" onclick="window.location.href='http://localhost:8080/?localeData=en'"></button>
+<button type="button" th:text="#{switch-it}" onclick="window.location.href='http://localhost:8080/?localeData=it'"></button>
+<button type="button" th:text="#{switch-fi}" onclick="window.location.href='http://localhost:8080/?localeData=fi'"></button>
+	<div class="container">
+		<h2 th:text="#{addNewCat}"></h2>
+		<div class="col-md-4">
+		<form th:object="${category}" th:action="@{savecategory}" action="#" method="post">
+		<label for="name" th:text="#{catName}"></label>
+		<input type="text" id="CategoryName" th:field="*{name}" class="form-control"/>
+		<div style="clear: both; display: block; height: 10px;"></div>
+		<input type="submit" class="btn btn-primary" value="Save"></input>
+</form>
+</div>
+</div>
+</body>
+</html>
