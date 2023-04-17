@@ -127,47 +127,48 @@ public class MusicController {
 	}
 	
 	// tallenna
-	/*@RequestMapping(value="/save", method=RequestMethod.POST)
+	@RequestMapping(value="/save", method=RequestMethod.POST)
 	public String saveSong(Music music) {
 		musicRepository.save(music);
 		return "redirect:musiclist";
 		
-	}*/
+	}
+	
 	// tallenna musiclistiin
-			@RequestMapping(value="/save", method=RequestMethod.POST)
+	/*@RequestMapping(value="/save", method=RequestMethod.POST)
 			public String saveSongToMusiclist(@Valid @ModelAttribute ("music") Music music, BindingResult bindingResult, Model model) {
 				if (bindingResult.hasErrors()) { 
 					log.info("error happened" + music);
 					List<Music> musics = (List<Music>) musicRepository.findAll(); 
-					model.addAttribute("musics", music); 
-					return "erroradding";  
+					model.addAttribute("musics", musics); 
+					return "addsong";  
 				} else {
 				musicRepository.save(music);
 				return "redirect:musiclist";
 				}
-			}
+			}*/
 	
 	// tallenna playlistiin
-	/*@RequestMapping(value="/saveplaylist", method=RequestMethod.POST)
+	@RequestMapping(value="/saveplaylist", method=RequestMethod.POST)
 	public String saveSongToPlaylist(Playlist playlist) {
 		playlistRepository.save(playlist);
 		return "redirect:playlist";
 		
-	}*/
+	}
 	
 	// tallenna playlistiin
-		@RequestMapping(value="/saveplaylist", method=RequestMethod.POST)
-		public String saveSongToPlaylist(@Valid @ModelAttribute ("music") Playlist playlist, BindingResult bindingResult, Model model) {
+	/*	@RequestMapping(value="/saveplaylist", method=RequestMethod.POST)
+		public String saveSongToPlaylist(@Valid @ModelAttribute ("playlist") Playlist playlist, BindingResult bindingResult, Model model) {
 			if (bindingResult.hasErrors()) { 
 				log.info("error happened" + playlist);
 				List<Playlist> playlists = (List<Playlist>) playlistRepository.findAll(); 
 				model.addAttribute("playlists", playlists); 
-				return "erroradding2";  
+				return "addsongtoplaylist";
 			} else {
 			playlistRepository.save(playlist);
 			return "redirect:playlist";
 			}
-		}
+		}*/
 	
 	// muokkaus
 	@RequestMapping(value="edit/{id}")

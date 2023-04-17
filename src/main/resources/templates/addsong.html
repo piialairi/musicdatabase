@@ -15,7 +15,7 @@
 <div class="col-md-4">
 <form th:object="${music}" th:action="@{../save}" action="#" method="post">
 	<label for="title" th:text="#{title}"></label>
-		<input type="text" id="title" th:field="*{title}" class="form-control" />
+		<input type="text" id="title" th:field="*{title}" class="form-control" required />
 		<div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error</div>
 		<div style="clear: both; display: block; height: 10px;"></div>
 	<label for="artist" th:text="#{artist}"></label>
