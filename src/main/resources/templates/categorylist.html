@@ -10,17 +10,20 @@
 <button type="button" th:text="#{switch-en}" onclick="window.location.href='http://localhost:8080/?localeData=en'"></button>
 <button type="button" th:text="#{switch-it}" onclick="window.location.href='http://localhost:8080/?localeData=it'"></button>
 <button type="button" th:text="#{switch-fi}" onclick="window.location.href='http://localhost:8080/?localeData=fi'"></button>
-<form th:action="@{/logout}" method="post">
+<body><form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sign out"/>
+	</form><br>
+			<p><a href="/addcategory" class="btn btn-success" th:text="#{addNewCat}"></a> <a href="/index" class="btn btn-success" th:text="#{mainPage}"></a> <a href="/musiclist" class="btn btn-success" th:text="#{workout}"></a> <a href="/playlist" class="btn btn-success" th:text="#{sleep}"></a></p>
 	<h1 th:text="#{categoryList}">Categorylist</h1>
 	<table class="table table striped">
 		<tbody>
 			<tr th:each = "category: ${categorys}">
 				<td th:text="${category.name}">Category name</td>
-		
+				<td sec:authorize="hasAuthority('ADMIN')"> <a class="btn btn-danger" th:href="@{deletecategory/{id}(id=${category.categoryid})}" th:text="#{delete}"></a></td>
 			</tr>
 		</tbody>
 		</table>
-			<p><a href="/addcategory" class="btn btn-success" th:text="#{addNewCat}">Add new category</a></p>
+
 
 </body>
 </html>

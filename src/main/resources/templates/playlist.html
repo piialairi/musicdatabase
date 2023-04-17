@@ -14,7 +14,7 @@
 		<input type="submit" value="Sign out"/>
 	</form><br>
 	<span th:text="#{hello}"></span> <span sec:authentication="name"></span>!<br>
-	
+	<p><a href="/addsongtoplaylist" class="btn btn-success" th:text="#{addNewSong}"></a> <a href="/index" class="btn btn-success" th:text="#{mainPage}"></a> <a href="/categorylist" class="btn btn-success" th:text="#{category}"></a></p>
 <!--	<h1>Hello <span sec:authentication="name"></span>!</h1> -->
 
 	<h1 th:text="#{sleep}"></h1>
@@ -34,13 +34,12 @@
 			<td th:text="${playlist.release_year}">Release year</td>
 			<td th:text="${playlist.length}">Song length</td>
 			<td th:text="${playlist.category.name}">Category</td>
-		<td sec:authorize="hasAuthority('ADMIN')"> <a class="btn btn-danger" th:href="@{delete/{id}(id=${playlist.id})}" th:text="#{delete}"></a></td>
+		<td sec:authorize="hasAuthority('ADMIN')"> <a class="btn btn-danger" th:href="@{deleteplaylist/{id}(id=${playlist.id})}" th:text="#{delete}"></a></td>
 		<td><a class="btn btn-light" th:href="@{editplaylist/{id}(id=${playlist.id})}" th:text="#{edit}"></a></td>
 		</tr>
 		</tbody>
 		</table>
-			<p><a href="/addsongtoplaylist" class="btn btn-success" th:text="#{addNewSong}"></a></p>
-			<p><a href="/index" class="btn btn-success" th:text="#{mainPage}"></a></p>
+
 
 </body>
 </html>

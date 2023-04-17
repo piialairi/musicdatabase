@@ -3,8 +3,10 @@ package hhsof3as3.musicdatabase.webController;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,4 +38,12 @@ public class CategoryController {
 		categoryRepository.save(category);
 		return "redirect:categorylist";
 			}
+	// poisto 
+		@RequestMapping(value="deletecategory/{id}")
+		@PreAuthorize("hasAuthority('ADMIN')")
+		public String deleteItemInCategory(@PathVariable("id") Long categoryId, Model model) {
+			categoryRepository.deleteById(categoryId);
+			return "redirect:../categorylist";
+			
+		}
 }

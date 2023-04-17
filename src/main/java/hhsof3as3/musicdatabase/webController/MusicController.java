@@ -189,7 +189,7 @@ public class MusicController {
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public String deleteSongInPlaylist(@PathVariable("id") Long playlistId, Model model) {
 		playlistRepository.deleteById(playlistId);
-		return "redirect:../playlistlist";
+		return "redirect:../playlist";
 		
 	}
 	/*@RequestMapping(value="/login")

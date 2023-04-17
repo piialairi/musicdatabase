@@ -11,7 +11,7 @@
 <button type="button" th:text="#{switch-it}" onclick="window.location.href='http://localhost:8080/?localeData=it'"></button>
 <button type="button" th:text="#{switch-fi}" onclick="window.location.href='http://localhost:8080/?localeData=fi'"></button>
 <div class="container">
-<h1 th:text="#{edit}">Edit song</h1>
+<h1 th:text="#{edit}"></h1>
 <form th:object="${music}" th:action="@{../save}" action="#" method="post">
 	<label for="title" th:text="#{title}"></label>
 		<input type="hidden" th:field="*{id}" class="form-control"/>
