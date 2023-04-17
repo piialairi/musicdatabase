@@ -26,13 +26,13 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 public class MusicdatabaseApplication implements WebMvcConfigurer {
 	private static final Logger log = LoggerFactory.getLogger(MusicdatabaseApplication.class);
 	
-	//private final LocaleChangeInterceptor localeChangeInterceptor;
+	private final LocaleChangeInterceptor localeChangeInterceptor;
 	
-	/*public MusicdatabaseApplication(LocaleChangeInterceptor localeChangeInterceptor) {
+	public MusicdatabaseApplication(LocaleChangeInterceptor localeChangeInterceptor) {
 	   this.localeChangeInterceptor = localeChangeInterceptor;
-	 }*/
+	 }
 
-	/*@Override
+	@Override
 	  public void addInterceptors(InterceptorRegistry interceptorRegistry) {
 	    interceptorRegistry.addInterceptor(localeChangeInterceptor);
 	  }
@@ -42,11 +42,8 @@ public class MusicdatabaseApplication implements WebMvcConfigurer {
 	    messageSource.setDefaultEncoding("UTF-8");
 	   
 		SpringApplication.run(MusicdatabaseApplication.class, args);
-	}*/
-	
-	public static void main(String[] args) {
-		SpringApplication.run(MusicdatabaseApplication.class, args);
 	}
+	
 
 	@Bean
 	public CommandLineRunner demoData(PlaylistRepository playlistRepository, MusicRepository musicRepository, CategoryRepository categoryRepository, UserRepository userRepository
@@ -87,10 +84,6 @@ public class MusicdatabaseApplication implements WebMvcConfigurer {
 			musicRepository.save(new Music("Headup", "Deftones", 1997, 6.12, category4));
 			musicRepository.save(new Music("Criminally Insane", "Angerfist", 2015, 4.44, category2));
 			musicRepository.save(new Music("The Many-Faced God", "D-Ceptor", 2023, 4.13, category2));
-			/*Music music1 = new Music("Laulu", 2015, 3.45, category1);
-			Music music2 = new Music("Laulu2", 2000	, 2.20, category1);
-			musicRepository.save(music1); // SQL-insert
-			musicRepository.save(music2); */
 			
 			//Create users: admin/admin user/user
 			User user1 = new User("user", "$2a$10$u9qCzUi16TtwlE.TCpQ/qutHt.6Wd8AG0V1vcTfeoafUxcQeRThcm", "USER");
@@ -98,7 +91,6 @@ public class MusicdatabaseApplication implements WebMvcConfigurer {
 			userRepository.save(user1);
 			userRepository.save(user2);
 			
-			//List<Music> musics = (List<Music>) musicRepository.findAll();
 			log.info("save some sample songs");
 			for (Music music : musicRepository.findAll());
 			

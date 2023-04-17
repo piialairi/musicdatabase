@@ -28,7 +28,7 @@ import hhsof3as3.musicdatabase.domain.CategoryRepository;
 import hhsof3as3.musicdatabase.domain.Music;
 import hhsof3as3.musicdatabase.domain.MusicRepository;
 import hhsof3as3.musicdatabase.domain.Playlist;
-//edit playlist editoi musiclistiä
+
 
 @Controller
 public class MusicController {
@@ -55,7 +55,6 @@ public class MusicController {
 	public String musicList(Model model) {
 		List<Music> musics = (List<Music>) musicRepository.findAll(); //haetaan tietokannasta
 		model.addAttribute("musics", musics); // välitetään musiikkilista templatelle model-olion avulla
-		//model.addAttribute("musics", musicRepository.findAll());
 		return "musiclist"; //.html
 	}
 	
@@ -64,7 +63,6 @@ public class MusicController {
 	public String playlist(Model model) {
 		List<Playlist> playlist = (List<Playlist>) playlistRepository.findAll(); //haetaan tietokannasta
 		model.addAttribute("playlists", playlist); // välitetään musiikkilista templatelle model-olion avulla
-		//model.addAttribute("playlists", playlistRepository.findAll());
 		return "playlist"; //.html
 	}
 	
